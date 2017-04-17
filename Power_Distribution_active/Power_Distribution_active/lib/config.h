@@ -27,7 +27,7 @@
 //_____Various_Definitions________
 #define inTestMode 0 //hard code whether the board should go into test mode
 #define TRAN_RESET_ENABLED 0
-#define SYSTEM_LOOP_TIME 0x20
+#define SYSTEM_LOOP_TIME 10
 #define SLEEPTIME 1800000 //30 minutes
 #define SAMPLES 100
 #define CURRENT_SURGE_TIME 500

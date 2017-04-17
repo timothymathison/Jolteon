@@ -54,18 +54,18 @@ U8 LEDPatterns[16][6] = {   {0b110, 0b111, 0b110, 0b111, 0b110, 0b111}, //error
 //timing interrupt to increment a number of timer variables 1 ms at a time.
 ISR(TIMER0_COMPA_vect)
 {
-	static unsigned int fuelDebounce = 0xaaaa;
-	static unsigned int fanDebounce = 0xaaaa;
+	static U8 fuelDebounce = 0xaa;
+	static U8 fanDebounce = 0xaa;
 	TIME++;
 	if((TIME & 7) == 4) //if TIME is a multiple of 4
 	{
 		fuelDebounce = (fuelDebounce << 1) | FUEL_SW;
-		if(fuelDebounce == 0x0000) fuelSwState = ON;
-		else if(fuelDebounce == 0xffff) fuelSwState = OFF;
+		if(fuelDebounce == 0x00) fuelSwState = ON;
+		else if(fuelDebounce == 0xff) fuelSwState = OFF;
 		
 		fanDebounce = (fanDebounce << 1) | FAN_SW;
-		if(fanDebounce == 0x0000) fanSwState = ON;
-		else if(fanDebounce == 0xffff) fanSwState = OFF;
+		if(fanDebounce == 0x00) fanSwState = ON;
+		else if(fanDebounce == 0xff) fanSwState = OFF;
 	}
 }
 
